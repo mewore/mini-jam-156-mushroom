@@ -1,0 +1,11 @@
+[gd_resource type="ShaderMaterial" load_steps=3 format=3 uid="uid://p2tdjbpeea1i"]
+
+[ext_resource type="Shader" path="res://util/randomize-palette.gdshader" id="1_effss"]
+[ext_resource type="Texture2D" uid="uid://btfgpqv11c0d6" path="res://util/palette-to-randomize.png" id="2_o2sya"]
+
+[resource]
+shader = ExtResource("1_effss")
+shader_parameter/palette_size = 16
+shader_parameter/randomization_amount = 0.5
+shader_parameter/randomization_seed = 28.655
+shader_parameter/palette = ExtResource("2_o2sya")

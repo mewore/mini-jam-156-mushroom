@@ -16,7 +16,7 @@
 
 - [x] 💙 Flying spore
 - [x] 💜 Simple background
-- [ ] 💜 Simple mushroom
+- [x] 💜 Simple mushroom
 - [ ] 💜 Simple nutrient indicator
 - [ ] 💜 Simple underground-corpse/skull
 - [ ] 💙 "Press ... to start" at the beginning
@@ -29,7 +29,9 @@
 
 ### Basic features
 
+- [ ] 💙 Pausing
 - [ ] 💙 Volume controls
+- [ ] 💙 The higher the karma/evolution, the more the hue changes
 - [ ] 💜 3 x (mushroom sprite)
 - [ ] 💜 3 x (spore sprite)
 - [ ] 💜 3 x (plant)
