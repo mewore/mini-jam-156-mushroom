@@ -17,7 +17,7 @@
 - [x] 💙 Flying spore
 - [x] 💜 Simple background
 - [x] 💜 Simple mushroom
-- [ ] 💜 Simple nutrient indicator
+- [x] 💜 Simple nutrient indicator
 - [ ] 💜 Simple underground-corpse/skull
 - [ ] 💙 "Press ... to start" at the beginning
 - [ ] 💙 Mushroom lifecycle: landing

@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://dru683a2ow7jk"]
+
+[ext_resource type="Texture2D" uid="uid://60dn6igl8b2r" path="res://entities/nutrient/nutrient.png" id="1_6f1qm"]
+[ext_resource type="Script" path="res://entities/nutrient/nutrient.gd" id="2_ucd6u"]
+
+[node name="Nutrient" type="Sprite2D"]
+texture = ExtResource("1_6f1qm")
+hframes = 4
+script = ExtResource("2_ucd6u")

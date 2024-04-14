@@ -1,13 +1,30 @@
-[gd_scene load_steps=6 format=3 uid="uid://b61g46usq7odr"]
+[gd_scene load_steps=12 format=3 uid="uid://b61g46usq7odr"]
 
 [ext_resource type="Script" path="res://scenes/Main.gd" id="1_d4hjo"]
+[ext_resource type="FastNoiseLite" uid="uid://mijamrpjece8" path="res://environment/nutrient-noise.tres" id="2_1i3i2"]
 [ext_resource type="Texture2D" uid="uid://e5h3ukdi627v" path="res://environment/background.png" id="2_5h2vd"]
 [ext_resource type="PackedScene" uid="uid://culx2s5sloqcg" path="res://entities/spore/spore.tscn" id="2_ekf75"]
 [ext_resource type="Material" uid="uid://p2tdjbpeea1i" path="res://util/randomize-palette-material.tres" id="5_3l5db"]
 [ext_resource type="Texture2D" uid="uid://buxo4sftnd38r" path="res://entities/mushroom/mushroom2.png" id="5_5ikdo"]
+[ext_resource type="PackedScene" uid="uid://dru683a2ow7jk" path="res://entities/nutrient/nutrient.tscn" id="6_b7lb0"]
+[ext_resource type="Shader" path="res://environment/ground-fade.gdshader" id="8_3thsb"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_n2sat"]
+shader = ExtResource("8_3thsb")
+
+[sub_resource type="Gradient" id="Gradient_ea5js"]
+colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 0.27451)
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_yplru"]
+width = 256
+height = 256
+color_ramp = SubResource("Gradient_ea5js")
+noise = ExtResource("2_1i3i2")
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_d4hjo")
+nutrientNoise = ExtResource("2_1i3i2")
+nutrientScene = ExtResource("6_b7lb0")
 accelerationAmount = Vector2(100, -500)
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
@@ -23,17 +40,17 @@ region_enabled = true
 region_rect = Rect2(0, 0, 1024, 650)
 
 [node name="Spore" parent="." instance=ExtResource("2_ekf75")]
-position = Vector2(14, 244)
+position = Vector2(158, 190)
 
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(510, 476)
-limit_left = -200
+position = Vector2(239, 321)
+limit_left = 0
 limit_top = 0
 limit_smoothed = true
 position_smoothing_enabled = true
 
 [node name="GroundMarker" type="Marker2D" parent="."]
-position = Vector2(0, 411)
+position = Vector2(0, 421)
 
 [node name="Mushroom" type="Sprite2D" parent="."]
 position = Vector2(649, 335)
@@ -41,6 +58,7 @@ texture = ExtResource("5_5ikdo")
 
 [node name="HueShift" type="ParallaxBackground" parent="."]
 layer = 100
+visible = false
 
 [node name="HueShiftLayer" type="ParallaxLayer" parent="HueShift"]
 motion_scale = Vector2(0, 0)
@@ -50,3 +68,17 @@ material = ExtResource("5_3l5db")
 offset_right = 512.0
 offset_bottom = 360.0
 mouse_filter = 2
+
+[node name="Nutrients" type="Node2D" parent="."]
+
+[node name="NutrientPreview" type="Sprite2D" parent="Nutrients"]
+material = SubResource("ShaderMaterial_n2sat")
+position = Vector2(0, 420)
+texture = SubResource("NoiseTexture2D_yplru")
+centered = false
+region_rect = Rect2(0, 0, 2048, 256)
+
+[node name="ChunkWidth" type="Marker2D" parent="Nutrients"]
+position = Vector2(128, 0)
+
+[node name="NutrientNoise" type="Node2D" parent="Nutrients"]

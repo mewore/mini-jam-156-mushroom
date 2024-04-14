@@ -1,0 +1,9 @@
+[gd_resource type="FastNoiseLite" format=3 uid="uid://mijamrpjece8"]
+
+[resource]
+seed = 130
+frequency = 0.0036
+fractal_type = 3
+fractal_octaves = 6
+fractal_lacunarity = 1.625
+fractal_gain = 0.875

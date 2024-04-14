@@ -6,6 +6,6 @@
 [resource]
 shader = ExtResource("1_effss")
 shader_parameter/palette_size = 16
-shader_parameter/randomization_amount = 0.5
-shader_parameter/randomization_seed = 28.655
+shader_parameter/randomization_amount = 0.0
+shader_parameter/randomization_seed = 24.35
 shader_parameter/palette = ExtResource("2_o2sya")
