@@ -1,0 +1,41 @@
+[gd_scene load_steps=4 format=3 uid="uid://b61g46usq7odr"]
+
+[ext_resource type="Script" path="res://scenes/Main.gd" id="1_d4hjo"]
+[ext_resource type="PackedScene" uid="uid://culx2s5sloqcg" path="res://entities/spore/spore.tscn" id="2_ekf75"]
+[ext_resource type="Texture2D" uid="uid://db33uyfwu117j" path="res://environment/land.png" id="2_s078k"]
+
+[node name="Main" type="Node2D"]
+script = ExtResource("1_d4hjo")
+
+[node name="Land" type="Sprite2D" parent="."]
+texture_repeat = 2
+position = Vector2(-256, 0)
+texture = ExtResource("2_s078k")
+centered = false
+region_enabled = true
+region_rect = Rect2(0, 0, 10000, 512)
+
+[node name="Spore" parent="." instance=ExtResource("2_ekf75")]
+position = Vector2(14, 244)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(106, 244)
+limit_left = -200
+limit_top = 0
+limit_bottom = 500
+limit_smoothed = true
+position_smoothing_enabled = true
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="Camera2D"]
+gravity = Vector2(0, 0)
+color = Color(1, 0, 1, 1)
+
+[node name="GroundMarker" type="Marker2D" parent="."]
+position = Vector2(0, 411)
+
+[node name="Polygon2D" type="Polygon2D" parent="."]
+position = Vector2(44, 194)
+scale = Vector2(0.5, 0.5)
+polygon = PackedVector2Array(111, 382, 112, 255, 59, 297, 23, 255, 54, 180, 152, 151, 246, 207, 268, 277, 234, 295, 175, 258, 180, 392)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]

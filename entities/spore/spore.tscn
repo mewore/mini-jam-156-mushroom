@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=3 uid="uid://culx2s5sloqcg"]
+
+[ext_resource type="Texture2D" uid="uid://db7i10op7008x" path="res://entities/spore/spore.png" id="1_2c6x5"]
+[ext_resource type="Script" path="res://entities/spore/spore.gd" id="2_ereyv"]
+
+[sub_resource type="Gradient" id="Gradient_a147b"]
+colors = PackedColorArray(0.2, 0.172549, 0.313726, 1, 0.2, 0.172549, 0.313726, 0)
+
+[node name="Spore" type="Sprite2D"]
+texture = ExtResource("1_2c6x5")
+hframes = 3
+script = ExtResource("2_ereyv")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.5
+autostart = true
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+show_behind_parent = true
+emission_shape = 3
+emission_rect_extents = Vector2(4, 4)
+gravity = Vector2(0, -5)
+scale_amount_max = 4.0
+color_ramp = SubResource("Gradient_a147b")
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
